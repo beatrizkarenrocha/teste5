@@ -1,0 +1,241 @@
+:root {
+    --sidebar-width: 250px;
+    --header-height: 70px;
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --success-color: #4cc9f0;
+    --danger-color: #f72585;
+    --warning-color: #f8961e;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --sidebar-bg: #1d1e20;
+    --sidebar-color: #e9ecef;
+    --header-bg: #fff;
+    --content-bg: #f1f5f9;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--content-bg);
+    color: var(--dark-color);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    color: var(--sidebar-color);
+    height: 100vh;
+    position: fixed;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-header h2 {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.sidebar-menu {
+    padding: 20px 0;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+}
+
+.sidebar-menu li a {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    color: var(--sidebar-color);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.sidebar-menu li a:hover {
+    background: rgba(255,255,255,0.1);
+    padding-left: 25px;
+}
+
+.sidebar-menu li a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-menu .active {
+    background: var(--primary-color);
+}
+
+.sidebar-menu .active:hover {
+    background: var(--secondary-color);
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-footer a {
+    display: flex;
+    align-items: center;
+    color: var(--sidebar-color);
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.3s;
+}
+
+.sidebar-footer a:hover {
+    color: white;
+    padding-left: 15px;
+}
+
+.sidebar-footer a i {
+    margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    height: var(--header-height);
+    background: var(--header-bg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left h1 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.logout-link {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.logout-link:hover {
+    color: var(--primary-color);
+}
+
+.logout-link i {
+    margin-right: 5px;
+}
+
+/* Content */
+.content {
+    padding: 30px;
+    flex: 1;
+}
+
+.page-title {
+    margin-bottom: 20px;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 70px;
+        overflow: hidden;
+    }
+    
+    .sidebar .sidebar-header h2,
+    .sidebar .sidebar-menu li a span,
+    .sidebar .sidebar-footer a span {
+        display: none;
+    }
+    
+    .sidebar .sidebar-menu li a {
+        justify-content: center;
+        padding: 15px 10px;
+    }
+    
+    .sidebar .sidebar-menu li a i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+    
+    .sidebar .sidebar-footer a {
+        justify-content: center;
+    }
+    
+    .sidebar .sidebar-footer a i {
+        margin-right: 0;
+    }
+    
+    .main-content {
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .charts {
+        grid-template-columns: 1fr;
+    }
+}
